@@ -3,7 +3,6 @@ h1 Listing users
 table.table.table-hover.table-condensed.data-table
   thead
     tr
-      th Name
       th Email
       th Group
       th Actions
@@ -12,7 +11,6 @@ table.table.table-hover.table-condensed.data-table
   tbody
     - @users.each do |user|
       tr
-        td = link_to "#{user.first_name} #{user.last_name}" , user_path(user)
         td = user.email
         - if user.group
           td = link_to user.group.name, group_path(user.group.id)

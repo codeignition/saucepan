@@ -36,14 +36,9 @@ class User
   # field :locked_at,       type: Time
 
   field :key
+  field :admin, type: Boolean, default: false
 
-  belongs_to :group
-
-  %w(admin).each do |name|
-    send :define_method, "#{name}?" do
-      !group.nil? and group.name == name
-    end
-  end
+  has_and_belongs_to_many :groups
 
   def force_profile_update?
     newcomer? and key.nil?
