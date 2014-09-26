@@ -1,0 +1,17 @@
+.navbar.navbar-inverse role="navigation"
+  .container
+    .navbar-header
+      button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to "Accounts", root_path, class: 'navbar-brand'
+    .navbar-collapse.collapse.navbar-right
+      ul.nav.navbar-nav.navbar-right
+        - if user_signed_in?
+          - if can? :manage, User
+            li= link_to 'Manage Users', users_path
+          li= link_to 'Profile', profile_path
+          li= link_to 'Log Out', destroy_user_session_path, method: :delete
+

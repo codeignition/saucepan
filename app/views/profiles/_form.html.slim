@@ -1,0 +1,21 @@
+.container-fluid
+  = form_for @user, url: profile_path, method: :patch, html: {class: 'form-horizontal'} do |f|
+    - if @user.errors.any?
+      #error_explanation
+        h2 = "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
+        ul
+          - @user.errors.full_messages.each do |message|
+            li = message
+    .form-group
+      .col-md-12
+        = f.email_field :email, class: "form-control", placeholder: "Email address", readonly: true
+    - if set_password
+      .form-group
+        .col-md-12
+          = f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "Set New Password"
+      .form-group
+        .col-md-12
+          = f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm new Password"
+    .form-group
+      .col-md-12
+        = f.submit 'Save',class: "btn btn-lg btn-primary btn-block"

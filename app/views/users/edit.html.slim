@@ -1,0 +1,9 @@
+.container-fluid.user-form-layout
+  .user-form-heading
+    h2 Editing user
+  .user-form
+    == render 'form'
+  .user-form-links
+    = link_to 'Show', @user
+    '|
+    = link_to 'Back', users_path

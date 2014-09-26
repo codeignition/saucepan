@@ -1,0 +1,7 @@
+.container-fluid.form-layout
+  .panel.panel-default
+    .panel-heading
+      h2 Edit profile
+    .panel-body
+      == render partial: 'form', locals: { set_password: false }
+      = link_to 'Back', profile_path
