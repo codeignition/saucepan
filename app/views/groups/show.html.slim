@@ -1,6 +1,23 @@
-p#notice = notice
+.container-fluid
+  .panel.panel-default
+    h2 Members of Group: #{@group.name}
+  .panel.body
+    table.table.table-condensed.table-bordered.table-hover
+      tbody
+        - @group.users.each do |user|
+          tr
+            td = link_to user.email, profile_path(user)
+            td = link_to 'Remove', remove_group_path(user_id: user.id), data: {confirm: 'Are you sure?'}, method: :delete
 
+  .panel.panel-default
+    h2 Not Members of Any Group
+  .panel.body
+    table.table.table-condensed.table-bordered.table-hover
+      tbody
+        - @user.each do |user|
+          tr
+            td = link_to user.email, profile_path(user)
+            td = link_to 'Add', add_group_path(user_id: user.id), method: :post
 
-= link_to 'Edit', edit_group_path(@group)
-'|
-= link_to 'Back', groups_path
+  .user-form-links
+    =link_to 'Back' , users_path
