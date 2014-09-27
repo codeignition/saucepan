@@ -1,8 +1,10 @@
-h1 Editing group
-
-== render 'form'
-
-= link_to 'Show', @group
-'|
-= link_to 'Back', groups_path
-
+.container-fluid.form-layout
+  .panel.panel-default
+    .panel-heading
+      h2 Editing Group
+    .panel-body
+      == render 'form'
+    .panel-footer
+      = link_to 'Show', @group
+      '|
+      = link_to 'Back', groups_path

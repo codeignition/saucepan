@@ -32,6 +32,7 @@ class UsersController < ApplicationController
   end
 
   def update
+    require 'pry'; binding.pry
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -57,6 +58,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user].permit(:email,:password,:password_confirmation,:key)
+    params[:user].permit(:email,:password,:password_confirmation,:key, :group_ids => [])
   end
 end

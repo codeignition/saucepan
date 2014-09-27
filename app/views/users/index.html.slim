@@ -12,10 +12,7 @@ table.table.table-hover.table-condensed.data-table
     - @users.each do |user|
       tr
         td = user.email
-        - if user.group
-          td = link_to user.group.name, group_path(user.group.id)
-        - else
-          td
+        td = user.groups.collect(&:name).join(',')
         td = link_to 'Edit', edit_user_path(user)
         td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
 

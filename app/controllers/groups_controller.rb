@@ -76,6 +76,6 @@ class GroupsController < ApplicationController
   end
 
   def group_params
-    params[:group].permit(:name)
+    params[:group].permit(:name,:query)
   end
 end

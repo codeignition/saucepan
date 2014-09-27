@@ -8,7 +8,8 @@
             li = message
     .form-group
       .col-md-12
-        = f.collection_select :group_id, Group.all, :id, :name, { include_blank: true } ,{ class: 'form-control' }
+        = f.collection_check_boxes :group_ids, Group.all, :to_param, :name, checked: @user.groups.map(&:id) do |b|
+          = b.label(:"data-value" => b.value, class: "checkbox-inline control-label" ) { b.check_box + ' ' + b.text }
     .form-group
       .col-md-12
         = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
