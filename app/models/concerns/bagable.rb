@@ -2,7 +2,7 @@ module Bagable
   extend ActiveSupport::Concern
   included do
     before_save do |object|
-      update_data_bag object
+      update_data_bag object if ENV['BAGGABLE'] == 'true'
     end
   end
 
