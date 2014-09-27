@@ -12,6 +12,8 @@
           = b.label(:"data-value" => b.value, class: "checkbox-inline control-label" ) { b.check_box + ' ' + b.text }
     .form-group
       .col-md-12
+        = f.text_field :name, autofocus: true, class: "form-control", placeholder: "User name"
+      .col-md-12
         = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
     - if @user.encrypted_password.blank?
       .form-group
