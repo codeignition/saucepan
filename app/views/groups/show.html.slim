@@ -8,16 +8,5 @@
           tr
             td = link_to user.email, profile_path(user)
             td = link_to 'Remove', remove_group_path(user_id: user.id), data: {confirm: 'Are you sure?'}, method: :delete
-
-  .panel.panel-default
-    h2 Not Members of Any Group
-  .panel.body
-    table.table.table-condensed.table-bordered.table-hover
-      tbody
-        - @user.each do |user|
-          tr
-            td = link_to user.email, profile_path(user)
-            td = link_to 'Add', add_group_path(user_id: user.id), method: :post
-
   .user-form-links
-    =link_to 'Back' , users_path
+    =link_to 'Back' , groups_path
