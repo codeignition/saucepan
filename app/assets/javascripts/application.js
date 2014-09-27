@@ -16,3 +16,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$ ->
+  $('.data-table').dataTable()
