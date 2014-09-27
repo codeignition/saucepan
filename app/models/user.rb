@@ -39,6 +39,7 @@ class User
   field :admin, type: Boolean, default: false
   field :name, type: String, default: nil
   field :login_name, type: String
+  field :user_id, type: Integer
 
 
   has_and_belongs_to_many :groups
