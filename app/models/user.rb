@@ -1,6 +1,7 @@
 class User
   include Mongoid::Document
   include Mongoid::Timestamps
+  include Bagable
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable, :registerable
@@ -56,5 +57,9 @@ class User
       key = key.map(&:to_s)
     end
     key
+  end
+
+  def data_pairs
+    { :email => :key }
   end
 end
