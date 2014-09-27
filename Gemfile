@@ -22,6 +22,8 @@ gem 'cancancan'
 
 gem 'puma'
 
+gem 'chef', '~> 11.16'
+
 gem 'spring', group: :development
 
 group :development, :test do
