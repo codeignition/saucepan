@@ -35,7 +35,7 @@ RSpec.describe User, :type => :model do
   describe "#force_profile_update?" do
     it "should return false if user profile updated" do
       user.update(:sign_in_count => 1)
-      user.update(key: 'sdasdfsad')
+      user.update(ssh_key: 'sdasdfsad')
       expect(user.force_profile_update?).to eq false
     end
 

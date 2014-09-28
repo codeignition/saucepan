@@ -1,15 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
-  let(:valid_attributes) do
-    {
-      email: generate(:email),
-      password: '1234567890',
-      password_confirmation: '1234567890',
-      key: 'key'
-    }
-  end
-
+  let(:valid_attributes) { attributes_for :user }
   let(:invalid_attributes) { {} }
   let(:valid_session) { {} }
 
@@ -104,9 +96,9 @@ RSpec.describe UsersController, :type => :controller do
       describe "with valid params" do
         it "updates the requested user" do
           user = User.create! valid_attributes
-          put :update, {:id => user.to_param, :user => {key: 'Minie'}}, valid_session
+          put :update, {:id => user.to_param, :user => {ssh_key: 'Minie'}}, valid_session
           user.reload
-          expect(user.key).to eq('Minie')
+          expect(user.ssh_key).to eq('Minie')
         end
 
         it "assigns the requested user as @user" do

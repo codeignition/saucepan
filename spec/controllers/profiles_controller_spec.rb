@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe ProfilesController, :type => :controller do
   let(:valid_attributes) do
-    { email: generate(:email), key: 'key' }
+    { email: generate(:email), ssh_key: 'key' }
   end
 
   login_user
@@ -38,9 +38,9 @@ RSpec.describe ProfilesController, :type => :controller do
   describe "PUT update" do
     describe "with valid params" do
       it "updates the requested user profile" do
-        User.last.update(key: 'dsdsd')
+        User.last.update(ssh_key: 'dsdsd')
         put :update, {:user => valid_attributes}
-        expect(User.last.key).to eq(valid_attributes[:key])
+        expect(User.last.ssh_key).to eq(valid_attributes[:ssh_key])
       end
 
       it "assigns the requested user as @user" do

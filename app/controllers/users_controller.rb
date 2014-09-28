@@ -57,6 +57,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user].permit(:email,:password,:password_confirmation,:key, :group_ids => [])
+    params[:user].permit(:email,:password,:password_confirmation,:ssh_key,:name,:login_name, :user_id, :group_ids => [])
   end
 end

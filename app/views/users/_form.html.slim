@@ -13,13 +13,19 @@
     .form-group
       .col-md-12
         = f.label 'System Login user', class: "control-label"
-        = f.text_field :login_name, class: "form-control", placeholder: "Name", readonly: true
-        = f.label 'Email', class: "control-label"
-        = f.email_field :email, class: "form-control", placeholder: "Email address", readonly: true
+        = f.text_field :login_name, class: "form-control", placeholder: "Name"
+    .form-group
+      .col-md-12
         = f.label 'Name', class: "control-label"
-        = f.text_field :name, class: "form-control", placeholder: "Name", readonly: false
+        = f.text_field :name, class: "form-control", placeholder: "Name"
+    .form-group
+      .col-md-12
         = f.label 'Email address', class: "control-label"
-        = f.email_field :email, autofocus: true, class: "form-control", placeholder: "Email address"
+        = f.email_field :email, class: "form-control", placeholder: "Email address"
+    .form-group
+      .col-md-12
+        = f.label 'User Id', class: "control-label"
+        = f.text_field :user_id, class: "form-control", placeholder: "User Id"
     - if @user.encrypted_password.blank?
       .form-group
         .col-md-12

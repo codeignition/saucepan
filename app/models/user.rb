@@ -36,17 +36,19 @@ class User
   # field :unlock_token,    type: String # Only if unlock strategy is :email or :both
   # field :locked_at,       type: Time
 
-  field :key
+  field :ssh_key
   field :admin, type: Boolean, default: false
-  field :name, type: String, default: nil
+  field :name, type: String
   field :login_name, type: String
   field :user_id, type: Integer
 
-
   has_and_belongs_to_many :groups
 
+  validates_presence_of :login_name, :user_id
+  validates_uniqueness_of :login_name, :user_id
+
   def force_profile_update?
-    newcomer? and key.nil?
+    newcomer? and ssh_key.nil?
   end
 
   def newcomer?
@@ -60,7 +62,14 @@ class User
     key
   end
 
-  def data_pairs
-    { :email => :key }
+  def data
+    {
+      login_name => {
+        'name'    => name,
+        'user_id' => user_id,
+        'ssh_key' => ssh_key,
+        'groups'  => groups.collect(&:name)
+      }
+    }
   end
 end

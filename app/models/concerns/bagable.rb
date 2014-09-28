@@ -2,16 +2,12 @@ module Bagable
   extend ActiveSupport::Concern
   included do
     before_save do |object|
-      update_data_bag object if ENV['BAGGABLE'] == 'true'
+      update_data_bag object if ENV['BAGABLE'] == 'true'
     end
   end
 
   def update_data_bag object
     id   = object.class.to_s.downcase
-    data = {}
-    data_pairs.each do |key, value|
-      data[object.send(key)] = object.send(value)
-    end
 
     Chef::Config.from_file(File.join(ENV['HOME'], '.chef', 'knife.rb'))
 
@@ -44,7 +40,7 @@ module Bagable
     'sshadmin'
   end
 
-  def data_pairs
+  def data
     {}
   end
 end
