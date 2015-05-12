@@ -1,24 +1,30 @@
 {
-  "name": "Jowin/Datatables-Bootstrap3",
+  "name": "datatables-bootstrap3",
   "main": [
     "BS3/assets/css/datatables.css",
+    "BS3/assets/images/sort_asc.png",
+    "BS3/assets/images/sort_asc_disabled.png",
+    "BS3/assets/images/sort_both.png",
+    "BS3/assets/images/sort_desc.png",
+    "BS3/assets/images/sort_desc_disabled.png",
     "BS3/assets/js/datatables.js"
   ],
   "description": "Plugin for Datatables Bootstrap3 UI Compatibility",
   "license": "README.md",
   "ignore": [
-    ".jshintrc",
-    "**/*.txt"
+    "BS3/examples/",
+    "BS3/Datatables.png",
+    "BS3/index.html"
   ],
   "dependencies": {
-    "datatables": "1_9"
+    "datatables": ">= 1.9.4"
   },
   "homepage": "https://github.com/Jowin/Datatables-Bootstrap3",
-  "_release": "376895df7f",
+  "_release": "45802ec4d3",
   "_resolution": {
     "type": "branch",
     "branch": "master",
-    "commit": "376895df7f07a140e3801745ef8862615ad6ce78"
+    "commit": "45802ec4d337bdba6750f03b6472ddbb1d34608c"
   },
   "_source": "git://github.com/Jowin/Datatables-Bootstrap3.git",
   "_target": "*",

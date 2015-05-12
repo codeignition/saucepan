@@ -23,3 +23,4 @@ config/secrets.yml
 .rvmrc
 spec/cassettes/ImageController/images/*
 application.log
+.idea
