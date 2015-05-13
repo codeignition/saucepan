@@ -1,17 +1,19 @@
-.navbar.navbar-inverse role="navigation"
-  .container
-    .navbar-header
-      button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      = link_to "SaucePan", root_path, class: 'navbar-brand'
-    .navbar-collapse.collapse.navbar-right
-      ul.nav.navbar-nav.navbar-right
-        - if user_signed_in?
+- if user_signed_in?
+  .navbar.navbar-inverse role="navigation"
+    .container
+      .navbar-header
+        button.navbar-toggle.collapsed data-target=".navbar-collapse" data-toggle="collapse" type="button"
+          span.sr-only Toggle navigation
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+        = link_to "Saucepan", root_path, class: 'navbar-brand'
+      .navbar-collapse.collapse.navbar-right
+        ul.nav.navbar-nav.navbar-right
           - if can? :manage, User
             li= link_to 'Users', users_path
           - if can? :manage, Group
             li= link_to 'Group', groups_path
           li= link_to 'Log Out', destroy_user_session_path, method: :delete
+- else
+  h1.brand-title Saucepan

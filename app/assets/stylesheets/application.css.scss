@@ -21,10 +21,11 @@
 
 /* User sign in and sign forms. */
 .border-form-div {
-  max-width: 500px;
+  max-width: 300px;
   min-width: 300px;
   padding: 19px 29px 29px;
   margin: 20px auto 20px;
+  margin-top:20;
   background-color: #fff;
   border: 1px solid #e5e5e5;
   -webkit-border-radius: 5px;
@@ -34,6 +35,26 @@
      -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
           box-shadow: 0 1px 2px rgba(0,0,0,.05);
 }
+.border-form-div a {
+  color:#FFFFFF;
+}
+
+.brand-title {
+  font-family: 'Oregano', cursive;
+  color:white;
+  text-align:center;
+  font-size:72px;
+}
+
+.navbar-inverse {
+  opacity: 0.4;
+}
+
+.navbar-brand {
+  font-family: 'Oregano', cursive;
+  color:white;
+}
+
 .border-form-div .form-signin-heading,
 .border-form-div .checkbox {
   margin-bottom: 10px;
@@ -63,4 +84,14 @@ body {
   background-image: radial-gradient(farthest-side ellipse at 10% 0, rgba(102,105,104,0.9),rgba(93,112,119,0.89),rgba(160,174,150,0.9));
   background-image: -moz-radial-gradient(10% 0, farthest-side ellipse, rgba(102,105,104,0.9), rgba(93,112,119,0.89), rgba(160,174,150,0.9));
   background-attachment: fixed, fixed;
+  font-family: 'Roboto', sans-serif;
+}
+
+.form-signin {
+  background:none;
+  color:white;
+}
+
+.ci-footer {
+  color: white;
 }

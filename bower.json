@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
+    "fontawesome": "*",
     "bootstrap": "~3.3.4",
     "datatables-bootstrap3": "*",
     "datatables": "~1.10.2"
