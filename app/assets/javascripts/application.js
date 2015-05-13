@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap
 //= require datatables/media/js/jquery.dataTables
 //= require datatables-bootstrap3/BS3/assets/js/datatables
 //= require jquery_ujs
