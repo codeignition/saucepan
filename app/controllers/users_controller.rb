@@ -1,11 +1,22 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+
+  before_action :setup_registration
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+
+  def setup_registration
+    print "setup_registration called"
+    respond_to do |format|
+      format.html redirect_to "/setup"
+    end
+  end
 
   def index
     @users = User.all
   end
+
+
 
   def show
   end
