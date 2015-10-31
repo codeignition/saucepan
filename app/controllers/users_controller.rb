@@ -1,22 +1,12 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
 
-  before_action :setup_registration
   before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
-
-  def setup_registration
-    print "setup_registration called"
-    respond_to do |format|
-      format.html redirect_to "/setup"
-    end
-  end
 
   def index
     @users = User.all
   end
-
-
 
   def show
   end
@@ -74,6 +64,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params[:user].permit(:email,:password,:password_confirmation,:ssh_key,:name,:login_name, :user_id, :group_ids => [])
+    params[:user].permit(:email, :password, :password_confirmation, :ssh_key, :name, :login_name, :user_id, :group_ids => [])
   end
 end
