@@ -24,4 +24,5 @@ Rails.application.routes.draw do
   end
 
   get "/setup" => "setup#index"
+  post "/setup/create" => "setup#create"
 end

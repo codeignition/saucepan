@@ -30,13 +30,19 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @organisation = Organisation.first
+    @incremented_user_id = @organisation.user_id + 1
+
+    @user.user_id = @incremented_user_id
+    @organisation.user_id = @incremented_user_id
+    @organisation.save
 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
-        format.html { render :new }
+        format.html { rendet :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
     end

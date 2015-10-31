@@ -1,7 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe UsersController, :type => :controller do
-  let(:valid_attributes) { attributes_for :user }
+  let(:valid_attributes) { {
+    email: "a@atom.com",
+    password: 'test123456',
+    password_confirmation: 'test123456',
+    login_name: 'shobit',
+    name: 'Shobhit',
+    user_id: 2001
+  }}
   let(:invalid_attributes) { {} }
   let(:valid_session) { {} }
 
@@ -72,6 +79,12 @@ RSpec.describe UsersController, :type => :controller do
         it "redirects to the created user" do
           post :create, {:user => valid_attributes}, valid_session
           expect(response).to redirect_to(User.last)
+        end
+        it "increments the user_id count in organisation" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
+          user_id = Organisation.first.user_id
+          post :create, :user => valid_attributes
+          expect(Organisation.first.user_id).to eq(user_id + 1)
         end
       end
 
