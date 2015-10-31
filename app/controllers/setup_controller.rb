@@ -1,7 +1,12 @@
 class SetupController < ApplicationController
 
   def index
+    user = User.first
+    if user.present?
+      redirect_to "/"
+    else
     @user = User.new
+    end
   end
 
   def create

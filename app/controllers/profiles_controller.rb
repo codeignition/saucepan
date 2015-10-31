@@ -5,6 +5,10 @@ class ProfilesController < ApplicationController
   def show
   end
 
+  def index
+
+  end
+
   def new
     redirect_to edit_profile_path unless current_user.newcomer?
   end
