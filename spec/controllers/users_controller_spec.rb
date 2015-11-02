@@ -65,20 +65,23 @@ RSpec.describe UsersController, :type => :controller do
 
       describe "with valid params" do
         it "creates a new User" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
           expect {
             post :create, {:user => valid_attributes}, valid_session
           }.to change(User, :count).by(1)
         end
 
         it "assigns a newly created user as @user" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
           post :create, {:user => valid_attributes}, valid_session
           expect(assigns(:user)).to be_a(User)
           expect(assigns(:user)).to be_persisted
         end
 
         it "redirects to the created user" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
           post :create, {:user => valid_attributes}, valid_session
-          expect(response).to redirect_to(User.last)
+          expect(response).to redirect_to(assigns(:user))
         end
         it "increments the user_id count in organisation" do
           Organisation.create(user_id: 2000, domain: 'codeignition.co')
@@ -90,11 +93,13 @@ RSpec.describe UsersController, :type => :controller do
 
       describe "with invalid params" do
         it "assigns a newly created but unsaved user as @user" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
           post :create, {:user => invalid_attributes}, valid_session
           expect(assigns(:user)).to be_a_new(User)
         end
 
         it "re-renders the 'new' template" do
+          Organisation.create(user_id: 2000, domain: 'codeignition.co')
           post :create, {:user => invalid_attributes}, valid_session
           expect(response).to render_template("new")
         end
