@@ -5,7 +5,7 @@ class SetupController < ApplicationController
     if user.present?
       redirect_to "/"
     else
-    @user = User.new
+      @user = User.new;
     end
   end
 
@@ -13,7 +13,7 @@ class SetupController < ApplicationController
     @user = User.new(user_params)
     @user.admin = true
     @user.user_id = 2000
-    @organisation = Organisation.create(user_id: @user.user_id, domain: params[:domain] )
+    @organisation = Organisation.create(user_id: @user.user_id, domain: params[:domain])
     respond_to do |format|
       if @user.save
         format.html { redirect_to new_user_session_path, notice: 'User was successfully created.' }
@@ -24,7 +24,8 @@ class SetupController < ApplicationController
       end
     end
   end
+
   def user_params
-    params[:user].permit(:email,:password,:password_confirmation,:ssh_key,:name,:login_name, :user_id, :group_ids => [])
+    params[:user].permit(:email, :password, :password_confirmation, :ssh_key, :name, :login_name, :user_id, :group_ids => [])
   end
 end

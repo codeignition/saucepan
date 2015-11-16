@@ -20,9 +20,10 @@ Rails.application.routes.draw do
 
     unauthenticated :user do
       root to: "sessions#new", as: :unauthenticated_root
+
+      get "/setup" => "setup#index"
+      post "/setup/create" => "setup#create"
     end
   end
 
-  get "/setup" => "setup#index"
-  post "/setup/create" => "setup#create"
 end
